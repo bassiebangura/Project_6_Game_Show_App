@@ -43,19 +43,28 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 addPhraseToDisplay(phraseArray);
 let testbtn = document.getElementsByClassName("letter")
 console.log(testbtn)
-const checkLetter = (btn) => {
-    let btnsWithLetter = document.getElementsByClassName("letter");
-    for (const item of btnsWithLetter ) {
-        if ( btn === item.textNode ) {
+
+//checkLetter fxn compares  button clicked to phrase 
+const checkLetter = (btnText) => {
+    let phraseLetterItems = document.getElementsByClassName("letter");
+    for (const item of phraseLetterItems ) {
+            phraseLetter = item.textNode
+        if ( btnText === phraseLetter ) {
             item.className = "show"
-            missed += 1;
-            let letterSelected = item.textNode;
-            return letterSelected;
+            return phrase;
             //disable button salected
         }
     }
     
 }
+
+//add event listener to buttons on the onscreen keyboard
+
+resetBtn.addEventListener("click", () => {
+    document.getElementById("overlay").style.display = "none";
+    }
+)
+
 
 // removes div with ID = overlay, and display divs with banner, phrase, keyboard and scoreboard .
 resetBtn.addEventListener("click", () => {
