@@ -42,7 +42,7 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 
 addPhraseToDisplay(phraseArray);
 let testbtn = document.getElementsByClassName("letter")
-console.log(testbtn)
+//console.log(testbtn)
 
 //checkLetter fxn compares  button clicked to phrase 
 const checkLetter = (btnText) => {
@@ -51,14 +51,27 @@ const checkLetter = (btnText) => {
             phraseLetter = item.textNode
         if ( btnText === phraseLetter ) {
             item.className = "show"
-            return phrase;
+            return phraseLetter;
             //disable button salected
         }
     }
     
 }
 
-//add event listener to buttons on the onscreen keyboard
+//get all the buttons on the onscreen keyboard
+const btns = document.querySelectorAll("button")
+console.log(btns)
+
+//add click evenListeners to all the buttons on keyboard.
+btns.forEach(btn => btn.addEventListener("click", ()=> {
+    let btnText = btn.textContent;
+    console.log(btnText)
+    checkLetter(btnText);
+    btn.disabled = "true";
+    btn.style.color = 'red';
+}
+
+));
 
 resetBtn.addEventListener("click", () => {
     document.getElementById("overlay").style.display = "none";
