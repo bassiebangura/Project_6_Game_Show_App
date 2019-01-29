@@ -23,7 +23,7 @@ and append that list item to the #phrase ul in your HTML. If the character in th
 and not a space, 
 the function should add the class “letter” to the list item.*/
 const addPhraseToDisplay = phraseInArrayFormat => {
-    //for each character in the array, you’ll create a list item put the character inside of the list item,
+    //for each character in the array, you’ll create a li elemnt and array item as textNode for li
     for (const item of phraseInArrayFormat) {
         let ul = document.getElementById("phrase");
         let li = document.createElement("li");
@@ -34,20 +34,28 @@ const addPhraseToDisplay = phraseInArrayFormat => {
         } else {
             li.className = "space"
             ul.appendChild(li)
-        }
-        
-        
+        }    
     }
-    //and append that list item to the #phrase ul in your HTML
-    // If the character in the array is a letter and 
-    //not a space,the function should add the class “letter” to the list item.
-    //takes and array and display it as phrase on web page
 }
 
 const phraseArray = getRandomPhraseAsArray(phrases);
 
-addPhraseToDisplay(phraseArray); 
-//console.log(getRandomPhraseAsArray(phrases))
+addPhraseToDisplay(phraseArray);
+let testbtn = document.getElementsByClassName("letter")
+console.log(testbtn)
+const checkLetter = (btn) => {
+    let btnsWithLetter = document.getElementsByClassName("letter");
+    for (const item of btnsWithLetter ) {
+        if ( btn === item.textNode ) {
+            item.className = "show"
+            missed += 1;
+            let letterSelected = item.textNode;
+            return letterSelected;
+            //disable button salected
+        }
+    }
+    
+}
 
 // removes div with ID = overlay, and display divs with banner, phrase, keyboard and scoreboard .
 resetBtn.addEventListener("click", () => {
