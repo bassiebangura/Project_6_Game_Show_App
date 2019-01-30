@@ -57,8 +57,25 @@ const checkLetter = (btnText) => {
       
 } 
 
+const itemsWithClassLetter = document.querySelectorAll(".letter")  
 const checkWin = missed => {
-    
+    console.log("check your wininng bro!!")
+    const itemsWithClassShow = document.querySelectorAll(".show");
+    if ( itemsWithClassLetter.length === itemsWithClassShow.length) {
+        console.log("you win bro")
+        document.querySelector(".overlayStatement").textContent = "Congratulations!!! You Won!!!";
+        document.getElementById("overlay").className = "win";
+        document.getElementById("overlay").style.display = "flex";
+        resetBtn.textContent = "Play Again";
+    } 
+
+    if ( missed >= 5 ) {
+        console.log("you lose bro")
+        document.querySelector(".overlayStatement").textContent = "You Lose!!! Better Luck Next Time!!!";
+        document.getElementById("overlay").className = "lose"
+        document.getElementById("overlay").style.display = "flex"
+        resetBtn.textContent = "Tryy Again" 
+    }
 
 }
 
@@ -84,8 +101,9 @@ btns.forEach(btn => btn.addEventListener("click", ()=> {
     }
     btn.disabled = "true";
     btn.className = "chosen"
-}
+
     checkWin(missed);
+    }
 ));
 
 resetBtn.addEventListener("click", () => {
