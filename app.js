@@ -57,13 +57,11 @@ const checkLetter = (btnText) => {
       
 } 
 
-const checkWin = input => {
+const checkWin = missed => {
     
+
 }
 
-//let re = checkLetter('p')
-
-//console.log(`returned ${re}`)
 
 //get all the buttons on the onscreen keyboard
 const btns = document.querySelectorAll("button")
@@ -85,9 +83,9 @@ btns.forEach(btn => btn.addEventListener("click", ()=> {
 
     }
     btn.disabled = "true";
-    btn.style.color = 'red';
+    btn.className = "chosen"
 }
-
+    checkWin(missed);
 ));
 
 resetBtn.addEventListener("click", () => {
