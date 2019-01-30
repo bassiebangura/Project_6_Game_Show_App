@@ -35,6 +35,10 @@ li, ol, ul {
   display: inline-block;
 }
 
+li {
+  transition: color 2s ease-in-out, background-color 1.5s;
+}
+
 h2 {
   margin: 0;
   text-transform: uppercase;

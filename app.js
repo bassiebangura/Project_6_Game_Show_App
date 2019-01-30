@@ -67,6 +67,10 @@ const checkWin = missed => {
         document.getElementById("overlay").className = "win";
         document.getElementById("overlay").style.display = "flex";
         resetBtn.textContent = "Play Again";
+        let restartBtn = document.querySelector(".win a")
+        restartBtn.addEventListener("click", () => {
+            location.reload(true);
+        })
     } 
 
     if ( missed >= 5 ) {
@@ -74,7 +78,11 @@ const checkWin = missed => {
         document.querySelector(".overlayStatement").textContent = "You Lose!!! Better Luck Next Time!!!";
         document.getElementById("overlay").className = "lose"
         document.getElementById("overlay").style.display = "flex"
-        resetBtn.textContent = "Tryy Again" 
+        resetBtn.textContent = "Try Again" 
+        let restartBtn = document.querySelector(".lose a")
+        restartBtn.addEventListener("click", () => {
+            location.reload(true);
+        })
     }
 
 }
